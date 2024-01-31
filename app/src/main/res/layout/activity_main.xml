@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    tools:context=".MainActivity">
+
+    <!--  google Title  -->
+    <TextView
+        android:id="@+id/tvGoogle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/google"
+        android:fontFamily="@font/product_sans_bold"
+        android:textSize="60sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="100dp"/>
+
+    <!--  input layout  -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:backgroundTint="#efeef6"
+        app:layout_constraintTop_toBottomOf="@id/tvGoogle"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/bg_round"
+        android:layout_marginHorizontal="16dp">
+
+        <!--    Mic    -->
+        <ImageView
+            android:id="@+id/ivMic"
+            android:layout_width="55dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:padding="17dp"
+            android:layout_marginEnd="5dp"
+            android:src="@drawable/ic_search_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:focusable="true" />
+
+        <!--    search Input    -->
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:textSize="15sp"
+            android:paddingStart="15dp"
+            android:textColor="@color/black"
+            android:textAlignment="textStart"
+            android:fontFamily="@font/product_sans_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            android:hint="@string/search_or_type_web_address"
+            app:layout_constraintEnd_toStartOf="@id/ivMic"
+            android:textColorHint="#494752"
+            android:background="@drawable/bg_round"
+            tools:ignore="RtlSymmetry" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

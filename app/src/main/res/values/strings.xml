@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GoogleCloneApp</string>
+    <string name="google">Google</string>
+    <string name="search_or_type_web_address">Search or type web address</string>
+</resources>
