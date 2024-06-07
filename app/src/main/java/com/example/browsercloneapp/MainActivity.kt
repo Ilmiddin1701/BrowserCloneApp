@@ -12,19 +12,13 @@ import com.example.browsercloneapp.databinding.ActivityMainBinding
 import com.example.browsercloneapp.databinding.ActivityMainWebBinding
 import com.example.browsercloneapp.utils.obj
 
-class MainActivity : AppCompatActivity()
-{
-    //binding
-    private lateinit var binding:ActivityMainBinding
-    override fun onCreate(savedInstanceState : Bundle?)
-    {
+class MainActivity : AppCompatActivity() {
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    override fun onCreate(savedInstanceState : Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //initViews
         binding.apply {
             setupDarkMode()
-
             ivMic.setOnClickListener{
                 obj.searchText1 = etSearch.text.toString()
                 val intent = Intent(this@MainActivity,MainWebActivity::class.java)
@@ -38,8 +32,7 @@ class MainActivity : AppCompatActivity()
         binding.etSearch.text.clear()
     }
     private fun setupDarkMode(){
-        when(resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK)
-        {
+        when(resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) {
             Configuration.UI_MODE_NIGHT_NO ->{
                 //Night mode is not active
                 setupGoogleLogo()
@@ -49,7 +42,7 @@ class MainActivity : AppCompatActivity()
                 binding.tvGoogle.setTextColor(Color.WHITE)
             }
             Configuration.UI_MODE_NIGHT_UNDEFINED ->{
-                //we don't know what mode we're in , assume light
+                //we don't know what mode we're in, assume light
                 setupGoogleLogo()
             }
         }
